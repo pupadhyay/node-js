@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const saveInDb = async () => {
+const main = async () => {
   await mongoose.connect("mongodb://localhost:27017/e-comm");
   const productsSchema = new mongoose.Schema({
     name: String,
@@ -18,4 +18,4 @@ const saveInDb = async () => {
   let result = await data.save();
   console.log(result);
 };
-saveInDb();
+main();
