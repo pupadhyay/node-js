@@ -23,10 +23,23 @@ const saveInDB = async () => {
 // Updateing data
 const updateInDb = async () => {
   const product = mongoose.model("products", productsSchema);
-  let data = await product.updateOne(
+  let data = await product.updateMany(
     { name: "Note Pro" },
     { $set: { price: 750 } }
   );
   console.log(data);
 };
-updateInDb();
+//updateInDb();
+
+const deleteInDb = async () => {
+  const product = mongoose.model("products", productsSchema);
+  let data = await product.deleteMany({ name: "Note Pro" });
+  console.log(data);
+};
+//deleteInDb();
+const findInDb = async () => {
+  const product = mongoose.model("products", productsSchema);
+  let data = await product.find({ name: "gt master addition" });
+  console.log(data);
+};
+findInDb();
